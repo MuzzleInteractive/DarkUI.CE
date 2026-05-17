@@ -1,5 +1,5 @@
 ﻿using DarkUI.Config;
-using DarkUI.Icons;
+using DarkUI.Resources;
 using System;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
@@ -392,13 +392,13 @@ namespace DarkUI.Controls
 
                 using (var b = new SolidBrush(Colors.DarkBackground))
                 {
-                    var arrowRect = new Rectangle(ClientRectangle.Right - DropdownIcons.small_arrow.Width - 8, ClientRectangle.Top, DropdownIcons.small_arrow.Width + 8, ClientRectangle.Height);
+                    var arrowRect = new Rectangle(ClientRectangle.Right - DarkUIIcons.small_arrow.Width - 8, ClientRectangle.Top, DarkUIIcons.small_arrow.Width + 8, ClientRectangle.Height);
                     g.FillRectangle(b, arrowRect);
                 }
 
                 using (var p = new Pen(Colors.BlueSelection, 1))
                 {
-                    var modRect = new Rectangle(ClientRectangle.Left, ClientRectangle.Top, ClientRectangle.Width - 1 - DropdownIcons.small_arrow.Width - 8, ClientRectangle.Height - 1);
+                    var modRect = new Rectangle(ClientRectangle.Left, ClientRectangle.Top, ClientRectangle.Width - 1 - DarkUIIcons.small_arrow.Width - 8, ClientRectangle.Height - 1);
                     g.DrawRectangle(p, modRect);
                 }
             }
@@ -413,13 +413,13 @@ namespace DarkUI.Controls
 
                 using (var b = new SolidBrush(Colors.BlueSelection))
                 {
-                    var arrowRect = new Rectangle(ClientRectangle.Right - DropdownIcons.small_arrow.Width - 8, ClientRectangle.Top, DropdownIcons.small_arrow.Width + 8, ClientRectangle.Height);
+                    var arrowRect = new Rectangle(ClientRectangle.Right - DarkUIIcons.small_arrow.Width - 8, ClientRectangle.Top, DarkUIIcons.small_arrow.Width + 8, ClientRectangle.Height);
                     g.FillRectangle(b, arrowRect);
                 }
             }
 
             // Draw dropdown arrow
-            using (var img = DropdownIcons.small_arrow)
+            using (var img = DarkUIIcons.small_arrow)
             {
                 g.DrawImageUnscaled(img, ClientRectangle.Right - img.Width - 4, ClientRectangle.Top + (ClientRectangle.Height / 2) - (img.Height / 2));
             }

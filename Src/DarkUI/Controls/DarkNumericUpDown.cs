@@ -1,5 +1,5 @@
 ﻿using DarkUI.Config;
-using DarkUI.Icons;
+using DarkUI.Resources;
 using System;
 using System.ComponentModel;
 using System.Drawing;
@@ -115,9 +115,9 @@ namespace DarkUI.Controls
             var upArea = new Rectangle(0, 0, rect.Width, rect.Height / 2);
             var upHot = upArea.Contains(mousePos);
 
-            var upIcon = upHot ? ScrollIcons.scrollbar_arrow_small_hot : ScrollIcons.scrollbar_arrow_small_standard;
+            var upIcon = upHot ? DarkUIIcons.scrollbar_arrow_small_hot : DarkUIIcons.scrollbar_arrow_small_standard;
             if (upHot && _mouseDown)
-                upIcon = ScrollIcons.scrollbar_arrow_small_clicked;
+                upIcon = DarkUIIcons.scrollbar_arrow_small_clicked;
 
             upIcon.RotateFlip(RotateFlipType.RotateNoneFlipY);
             g.DrawImageUnscaled(upIcon, (upArea.Width / 2) - (upIcon.Width / 2), (upArea.Height / 2) - (upIcon.Height / 2));
@@ -125,9 +125,9 @@ namespace DarkUI.Controls
             var downArea = new Rectangle(0, rect.Height / 2, rect.Width, rect.Height / 2);
             var downHot = downArea.Contains(mousePos);
 
-            var downIcon = downHot ? ScrollIcons.scrollbar_arrow_small_hot : ScrollIcons.scrollbar_arrow_small_standard;
+            var downIcon = downHot ? DarkUIIcons.scrollbar_arrow_small_hot : DarkUIIcons.scrollbar_arrow_small_standard;
             if (downHot && _mouseDown)
-                downIcon = ScrollIcons.scrollbar_arrow_small_clicked;
+                downIcon = DarkUIIcons.scrollbar_arrow_small_clicked;
 
             g.DrawImageUnscaled(downIcon, (downArea.Width / 2) - (downIcon.Width / 2), downArea.Top + (downArea.Height / 2) - (downIcon.Height / 2));
         }

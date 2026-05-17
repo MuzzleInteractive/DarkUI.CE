@@ -1,6 +1,6 @@
 ﻿using DarkUI.Config;
 using DarkUI.Extensions;
-using DarkUI.Icons;
+using DarkUI.Resources;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -107,7 +107,7 @@ namespace DarkUI.Renderers
 
             var g = e.Graphics;
 
-            using (var img = MenuIcons.grip.SetColor(Colors.LightBorder))
+            using (var img = DarkUIIcons.grip.SetColor(Colors.LightBorder))
             {
                 g.DrawImageUnscaled(img, new Point(e.AffectedBounds.Left, e.AffectedBounds.Top));
             }

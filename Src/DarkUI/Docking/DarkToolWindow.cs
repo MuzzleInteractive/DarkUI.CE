@@ -1,5 +1,5 @@
 ﻿using DarkUI.Config;
-using DarkUI.Icons;
+using DarkUI.Resources;
 using System;
 using System.ComponentModel;
 using System.Drawing;
@@ -55,10 +55,10 @@ namespace DarkUI.Docking
 
             _closeButtonRect = new Rectangle
             {
-                X = ClientRectangle.Right - DockIcons.tw_close.Width - 5 - 3,
-                Y = ClientRectangle.Top + (Consts.ToolWindowHeaderSize / 2) - (DockIcons.tw_close.Height / 2),
-                Width = DockIcons.tw_close.Width,
-                Height = DockIcons.tw_close.Height
+                X = ClientRectangle.Right - DarkUIIcons.tw_close.Width - 5 - 3,
+                Y = ClientRectangle.Top + (Consts.ToolWindowHeaderSize / 2) - (DarkUIIcons.tw_close.Height / 2),
+                Width = DarkUIIcons.tw_close.Width,
+                Height = DarkUIIcons.tw_close.Height
             };
         }
 
@@ -191,10 +191,10 @@ namespace DarkUI.Docking
             }
 
             // Close button
-            var img = _closeButtonHot ? DockIcons.tw_close_selected : DockIcons.tw_close;
+            var img = _closeButtonHot ? DarkUIIcons.tw_close_selected : DarkUIIcons.tw_close;
 
             if (isActive)
-                img = _closeButtonHot ? DockIcons.tw_active_close_selected : DockIcons.tw_active_close;
+                img = _closeButtonHot ? DarkUIIcons.tw_active_close_selected : DarkUIIcons.tw_active_close;
 
             g.DrawImageUnscaled(img, _closeButtonRect.Left, _closeButtonRect.Top);
         }

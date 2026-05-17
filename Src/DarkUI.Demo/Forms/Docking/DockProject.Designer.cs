@@ -56,7 +56,7 @@ namespace DarkUI.Demo.Forms.Docking
             this.DefaultDockArea = DarkUI.Docking.DarkDockArea.Left;
             this.DockText = "Project Explorer";
             this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Icon = global::DarkUI.Demo.Icons.application_16x;
+            this.Icon = global::DarkUI.Resources.VS2019Icons.Application_16x;
             this.Name = "DockProject";
             this.SerializationKey = "DockProject";
             this.Size = new System.Drawing.Size(280, 450);

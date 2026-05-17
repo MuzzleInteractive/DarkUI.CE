@@ -1,5 +1,6 @@
 ﻿using DarkUI.Controls;
 using DarkUI.Forms;
+using DarkUI.Resources;
 
 namespace DarkUI.Demo.Forms.Dialogs
 {
@@ -21,13 +22,13 @@ namespace DarkUI.Demo.Forms.Dialogs
             for (var i = 0; i < 20; i++)
             {
                 var node = new DarkTreeNode($"Root node #{i}");
-                node.ExpandedIcon = Icons.folder_open;
-                node.Icon = Icons.folder_closed;
+                node.ExpandedIcon = VS2019Icons.FolderOpened_16x;
+                node.Icon = VS2019Icons.FolderClosed_16x;
 
                 for (var x = 0; x < 10; x++)
                 {
                     var childNode = new DarkTreeNode($"Child node #{childCount}");
-                    childNode.Icon = Icons.files;
+                    childNode.Icon = VS2019Icons.DocumentGroup_16x;
                     childCount++;
                     node.Nodes.Add(childNode);
                 }

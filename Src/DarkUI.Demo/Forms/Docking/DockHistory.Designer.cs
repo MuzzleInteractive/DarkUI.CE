@@ -52,7 +52,7 @@ namespace DarkUI.Demo.Forms.Docking
             this.DefaultDockArea = DarkUI.Docking.DarkDockArea.Right;
             this.DockText = "History";
             this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Icon = global::DarkUI.Demo.Icons.RefactoringLog_12810;
+            this.Icon = global::DarkUI.Resources.VS2019Icons.Log_16x;
             this.Name = "DockHistory";
             this.SerializationKey = "DockHistory";
             this.Size = new System.Drawing.Size(280, 450);

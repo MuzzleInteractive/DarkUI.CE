@@ -1,5 +1,5 @@
 ﻿using DarkUI.Config;
-using DarkUI.Icons;
+using DarkUI.Resources;
 using System;
 using System.ComponentModel;
 using System.Drawing;
@@ -129,7 +129,7 @@ namespace DarkUI.Controls
                     g.DrawRectangle(p, modRect);
                 }
 
-                var icon = ScrollIcons.scrollbar_arrow_hot;
+                var icon = DarkUIIcons.scrollbar_arrow_hot;
                 g.DrawImageUnscaled(icon,
                                     rect.Right - icon.Width - (Consts.Padding / 2),
                                     (rect.Height / 2) - (icon.Height / 2));

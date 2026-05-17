@@ -2,7 +2,7 @@
 using DarkUI.Config;
 using DarkUI.Extensions;
 using DarkUI.Forms;
-using DarkUI.Icons;
+using DarkUI.Resources;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -611,12 +611,12 @@ namespace DarkUI.Controls
         {
             DisposeIcons();
 
-            _nodeClosed = TreeViewIcons.node_closed_empty.SetColor(Colors.LightText);
-            _nodeClosedHover = TreeViewIcons.node_closed_empty.SetColor(Colors.BlueHighlight);
-            _nodeClosedHoverSelected = TreeViewIcons.node_closed_full.SetColor(Colors.LightText);
-            _nodeOpen = TreeViewIcons.node_open.SetColor(Colors.LightText);
-            _nodeOpenHover = TreeViewIcons.node_open.SetColor(Colors.BlueHighlight);
-            _nodeOpenHoverSelected = TreeViewIcons.node_open_empty.SetColor(Colors.LightText);
+            _nodeClosed = DarkUIIcons.node_closed_empty.SetColor(Colors.LightText);
+            _nodeClosedHover = DarkUIIcons.node_closed_empty.SetColor(Colors.BlueHighlight);
+            _nodeClosedHoverSelected = DarkUIIcons.node_closed_full.SetColor(Colors.LightText);
+            _nodeOpen = DarkUIIcons.node_open.SetColor(Colors.LightText);
+            _nodeOpenHover = DarkUIIcons.node_open.SetColor(Colors.BlueHighlight);
+            _nodeOpenHoverSelected = DarkUIIcons.node_open_empty.SetColor(Colors.LightText);
         }
 
         private void DisposeIcons()

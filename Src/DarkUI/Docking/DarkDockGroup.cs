@@ -1,5 +1,5 @@
 ﻿using DarkUI.Config;
-using DarkUI.Icons;
+using DarkUI.Resources;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -185,7 +185,7 @@ namespace DarkUI.Docking
 
             SuspendLayout();
 
-            var closeButtonSize = DockIcons.close.Width;
+            var closeButtonSize = DarkUIIcons.close.Width;
 
             // Calculate areas of all tabs
             var totalSize = 0;
@@ -647,7 +647,7 @@ namespace DarkUI.Docking
                     g.FillRectangle(b, dropdownRect);
                 }
 
-                using (var img = DockIcons.arrow)
+                using (var img = DarkUIIcons.arrow)
                 {
                     g.DrawImageUnscaled(img, dropdownRect.Left + (dropdownRect.Width / 2) - (img.Width / 2), dropdownRect.Top + (dropdownRect.Height / 2) - (img.Height / 2) + 1);
                 }
@@ -709,14 +709,14 @@ namespace DarkUI.Docking
             }
 
             // Close button
-            var img = tab.CloseButtonHot ? DockIcons.inactive_close_selected : DockIcons.inactive_close;
+            var img = tab.CloseButtonHot ? DarkUIIcons.inactive_close_selected : DarkUIIcons.inactive_close;
 
             if (isVisibleTab)
             {
                 if (isActiveGroup)
-                    img = tab.CloseButtonHot ? DockIcons.close_selected : DockIcons.close;
+                    img = tab.CloseButtonHot ? DarkUIIcons.close_selected : DarkUIIcons.close;
                 else
-                    img = tab.CloseButtonHot ? DockIcons.close_selected : DockIcons.active_inactive_close;
+                    img = tab.CloseButtonHot ? DarkUIIcons.close_selected : DarkUIIcons.active_inactive_close;
             }
 
             var closeRect = RectangleToTabArea(tab.CloseButtonRectangle);

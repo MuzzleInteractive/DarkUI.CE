@@ -33,63 +33,26 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Compile Update="Icons\DockIcons.Designer.cs">
+	  <Compile Update="Resources\DarkUIIcons.Designer.cs">
 	    <DesignTime>True</DesignTime>
 	    <AutoGen>True</AutoGen>
-	    <DependentUpon>DockIcons.resx</DependentUpon>
+	    <DependentUpon>DarkUIIcons.resx</DependentUpon>
 	  </Compile>
-	  <Compile Update="Icons\DropdownIcons.Designer.cs">
+	  <Compile Update="Resources\VS2019Icons.Designer.cs">
 	    <DesignTime>True</DesignTime>
 	    <AutoGen>True</AutoGen>
-	    <DependentUpon>DropdownIcons.resx</DependentUpon>
-	  </Compile>
-	  <Compile Update="Icons\MenuIcons.Designer.cs">
-	    <Generator></Generator>
-	    <DesignTime>True</DesignTime>
-	    <AutoGen>True</AutoGen>
-	    <DependentUpon>MenuIcons.resx</DependentUpon>
-	  </Compile>
-	  <Compile Update="Icons\MessageBoxIcons.Designer.cs">
-	    <DesignTime>True</DesignTime>
-	    <AutoGen>True</AutoGen>
-	    <DependentUpon>MessageBoxIcons.resx</DependentUpon>
-	  </Compile>
-	  <Compile Update="Icons\ScrollIcons.Designer.cs">
-	    <DesignTime>True</DesignTime>
-	    <AutoGen>True</AutoGen>
-	    <DependentUpon>ScrollIcons.resx</DependentUpon>
-	  </Compile>
-	  <Compile Update="Icons\TreeViewIcons.Designer.cs">
-	    <DesignTime>True</DesignTime>
-	    <AutoGen>True</AutoGen>
-	    <DependentUpon>TreeViewIcons.resx</DependentUpon>
+	    <DependentUpon>VS2019Icons.resx</DependentUpon>
 	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>
-	  <EmbeddedResource Update="Icons\DockIcons.resx">
-	    <Generator>ResXFileCodeGenerator</Generator>
-	    <LastGenOutput>DockIcons.Designer.cs</LastGenOutput>
+	  <EmbeddedResource Update="Resources\DarkUIIcons.resx">
+	    <Generator>PublicResXFileCodeGenerator</Generator>
+	    <LastGenOutput>DarkUIIcons.Designer.cs</LastGenOutput>
 	  </EmbeddedResource>
-	  <EmbeddedResource Update="Icons\DropdownIcons.resx">
-	    <Generator>ResXFileCodeGenerator</Generator>
-	    <LastGenOutput>DropdownIcons.Designer.cs</LastGenOutput>
-	  </EmbeddedResource>
-	  <EmbeddedResource Update="Icons\MenuIcons.resx">
-	    <Generator>ResXFileCodeGenerator</Generator>
-	    <LastGenOutput>MenuIcons.Designer.cs</LastGenOutput>
-	  </EmbeddedResource>
-	  <EmbeddedResource Update="Icons\MessageBoxIcons.resx">
-	    <Generator>ResXFileCodeGenerator</Generator>
-	    <LastGenOutput>MessageBoxIcons.Designer.cs</LastGenOutput>
-	  </EmbeddedResource>
-	  <EmbeddedResource Update="Icons\ScrollIcons.resx">
-	    <Generator>ResXFileCodeGenerator</Generator>
-	    <LastGenOutput>ScrollIcons.Designer.cs</LastGenOutput>
-	  </EmbeddedResource>
-	  <EmbeddedResource Update="Icons\TreeViewIcons.resx">
-	    <Generator>ResXFileCodeGenerator</Generator>
-	    <LastGenOutput>TreeViewIcons.Designer.cs</LastGenOutput>
+	  <EmbeddedResource Update="Resources\VS2019Icons.resx">
+	    <Generator>PublicResXFileCodeGenerator</Generator>
+	    <LastGenOutput>VS2019Icons.Designer.cs</LastGenOutput>
 	  </EmbeddedResource>
 	</ItemGroup>
 

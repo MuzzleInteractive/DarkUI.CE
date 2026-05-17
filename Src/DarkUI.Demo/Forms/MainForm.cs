@@ -3,6 +3,7 @@ using DarkUI.Demo.Forms.Docking;
 using DarkUI.Demo.Helpers;
 using DarkUI.Docking;
 using DarkUI.Forms;
+using DarkUI.Resources;
 using DarkUI.Win32;
 using System;
 using System.Collections.Generic;
@@ -71,9 +72,9 @@ namespace DarkUI.Demo.Forms
             BuildWindowMenu();
 
             // Add dummy documents to the main document area of the dock panel
-            DockPanel.AddContent(new DockDocument("Document 1", Icons.document_16xLG));
-            DockPanel.AddContent(new DockDocument("Document 2", Icons.document_16xLG));
-            DockPanel.AddContent(new DockDocument("Document 3", Icons.document_16xLG));
+            DockPanel.AddContent(new DockDocument("Document 1", VS2019Icons.Document_16x));
+            DockPanel.AddContent(new DockDocument("Document 2", VS2019Icons.Document_16x));
+            DockPanel.AddContent(new DockDocument("Document 3", VS2019Icons.Document_16x));
         }
 
         private void HookEvents()
@@ -135,7 +136,7 @@ namespace DarkUI.Demo.Forms
 
         private void NewFile_Click(object sender, EventArgs e)
         {
-            var newFile = new DockDocument("New document", Icons.document_16xLG);
+            var newFile = new DockDocument("New document", VS2019Icons.Document_16x);
             DockPanel.AddContent(newFile);
         }
 

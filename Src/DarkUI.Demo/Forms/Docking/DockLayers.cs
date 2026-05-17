@@ -1,5 +1,6 @@
 ﻿using DarkUI.Controls;
 using DarkUI.Docking;
+using DarkUI.Resources;
 
 namespace DarkUI.Demo.Forms.Docking
 {
@@ -13,7 +14,7 @@ namespace DarkUI.Demo.Forms.Docking
             for (var i = 0; i < 100; i++)
             {
                 var item = new DarkListItem($"List item #{i}");
-                item.Icon = Icons.application_16x;
+                item.Icon = VS2019Icons.Application_16x;
                 lstLayers.Items.Add(item);
             }
 

@@ -1,4 +1,4 @@
-﻿using DarkUI.Icons;
+﻿using DarkUI.Resources;
 using System;
 using System.ComponentModel;
 using System.Drawing;
@@ -86,13 +86,13 @@ namespace DarkUI.Forms
                     lblText.Left = 10;
                     break;
                 case DarkMessageBoxIcon.Information:
-                    picIcon.Image = MessageBoxIcons.info;
+                    picIcon.Image = DarkUIIcons.info;
                     break;
                 case DarkMessageBoxIcon.Warning:
-                    picIcon.Image = MessageBoxIcons.warning;
+                    picIcon.Image = DarkUIIcons.warning;
                     break;
                 case DarkMessageBoxIcon.Error:
-                    picIcon.Image = MessageBoxIcons.error;
+                    picIcon.Image = DarkUIIcons.error;
                     break;
             }
         }

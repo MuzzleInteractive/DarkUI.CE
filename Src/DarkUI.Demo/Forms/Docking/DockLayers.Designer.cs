@@ -65,7 +65,7 @@ namespace DarkUI.Demo.Forms.Docking
             this.DefaultDockArea = DarkUI.Docking.DarkDockArea.Right;
             this.DockText = "Layers";
             this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Icon = global::DarkUI.Demo.Icons.Collection_16xLG;
+            this.Icon = global::DarkUI.Resources.VS2019Icons.DocumentCollection_16x;
             this.Name = "DockLayers";
             this.SerializationKey = "DockLayers";
             this.Size = new System.Drawing.Size(280, 450);

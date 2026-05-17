@@ -97,7 +97,7 @@ namespace DarkUI.Demo.Forms
             // mnuNewFile
             // 
             this.mnuNewFile.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-            this.mnuNewFile.Image = global::DarkUI.Demo.Icons.NewFile_6276;
+            this.mnuNewFile.Image = global::DarkUI.Resources.VS2019Icons.NewFile_16x;
             this.mnuNewFile.Name = "mnuNewFile";
             this.mnuNewFile.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
             this.mnuNewFile.Size = new System.Drawing.Size(160, 22);
@@ -113,7 +113,7 @@ namespace DarkUI.Demo.Forms
             // mnuClose
             // 
             this.mnuClose.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-            this.mnuClose.Image = global::DarkUI.Demo.Icons.Close_16xLG;
+            this.mnuClose.Image = global::DarkUI.Resources.VS2019Icons.CloseSolution_16x;
             this.mnuClose.Name = "mnuClose";
             this.mnuClose.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
             this.mnuClose.Size = new System.Drawing.Size(160, 22);
@@ -131,7 +131,7 @@ namespace DarkUI.Demo.Forms
             // mnuDialog
             // 
             this.mnuDialog.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-            this.mnuDialog.Image = global::DarkUI.Demo.Icons.properties_16xLG;
+            this.mnuDialog.Image = global::DarkUI.Resources.VS2019Icons.Property_16x;
             this.mnuDialog.Name = "mnuDialog";
             this.mnuDialog.Size = new System.Drawing.Size(130, 22);
             this.mnuDialog.Text = "&Dialog test";
@@ -161,7 +161,7 @@ namespace DarkUI.Demo.Forms
             // 
             this.checkableWithIconToolStripMenuItem.CheckOnClick = true;
             this.checkableWithIconToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-            this.checkableWithIconToolStripMenuItem.Image = global::DarkUI.Demo.Icons.properties_16xLG;
+            this.checkableWithIconToolStripMenuItem.Image = global::DarkUI.Resources.VS2019Icons.Property_16x;
             this.checkableWithIconToolStripMenuItem.Name = "checkableWithIconToolStripMenuItem";
             this.checkableWithIconToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
             this.checkableWithIconToolStripMenuItem.Text = "Checkable with icon";
@@ -187,7 +187,7 @@ namespace DarkUI.Demo.Forms
             this.checkedWithIconToolStripMenuItem.Checked = true;
             this.checkedWithIconToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkedWithIconToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-            this.checkedWithIconToolStripMenuItem.Image = global::DarkUI.Demo.Icons.properties_16xLG;
+            this.checkedWithIconToolStripMenuItem.Image = global::DarkUI.Resources.VS2019Icons.Property_16x;
             this.checkedWithIconToolStripMenuItem.Name = "checkedWithIconToolStripMenuItem";
             this.checkedWithIconToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
             this.checkedWithIconToolStripMenuItem.Text = "Checked with icon";
@@ -208,7 +208,7 @@ namespace DarkUI.Demo.Forms
             // mnuProject
             // 
             this.mnuProject.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-            this.mnuProject.Image = global::DarkUI.Demo.Icons.application_16x;
+            this.mnuProject.Image = global::DarkUI.Resources.VS2019Icons.Application_16x;
             this.mnuProject.Name = "mnuProject";
             this.mnuProject.Size = new System.Drawing.Size(156, 22);
             this.mnuProject.Text = "&Project Explorer";
@@ -216,7 +216,7 @@ namespace DarkUI.Demo.Forms
             // mnuProperties
             // 
             this.mnuProperties.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-            this.mnuProperties.Image = global::DarkUI.Demo.Icons.properties_16xLG;
+            this.mnuProperties.Image = global::DarkUI.Resources.VS2019Icons.Property_16x;
             this.mnuProperties.Name = "mnuProperties";
             this.mnuProperties.Size = new System.Drawing.Size(156, 22);
             this.mnuProperties.Text = "P&roperties";
@@ -224,7 +224,7 @@ namespace DarkUI.Demo.Forms
             // mnuConsole
             // 
             this.mnuConsole.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-            this.mnuConsole.Image = global::DarkUI.Demo.Icons.Console;
+            this.mnuConsole.Image = global::DarkUI.Resources.VS2019Icons.Console_16x;
             this.mnuConsole.Name = "mnuConsole";
             this.mnuConsole.Size = new System.Drawing.Size(156, 22);
             this.mnuConsole.Text = "&Console";
@@ -232,7 +232,7 @@ namespace DarkUI.Demo.Forms
             // mnuLayers
             // 
             this.mnuLayers.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-            this.mnuLayers.Image = global::DarkUI.Demo.Icons.Collection_16xLG;
+            this.mnuLayers.Image = global::DarkUI.Resources.VS2019Icons.DocumentCollection_16x;
             this.mnuLayers.Name = "mnuLayers";
             this.mnuLayers.Size = new System.Drawing.Size(156, 22);
             this.mnuLayers.Text = "&Layers";
@@ -257,7 +257,7 @@ namespace DarkUI.Demo.Forms
             // mnuAbout
             // 
             this.mnuAbout.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-            this.mnuAbout.Image = global::DarkUI.Demo.Icons.StatusAnnotations_Information_16xLG_color;
+            this.mnuAbout.Image = global::DarkUI.Resources.VS2019Icons.StatusInformation_16x;
             this.mnuAbout.Name = "mnuAbout";
             this.mnuAbout.Size = new System.Drawing.Size(145, 22);
             this.mnuAbout.Text = "&About DarkUI";
@@ -282,7 +282,7 @@ namespace DarkUI.Demo.Forms
             this.btnNewFile.AutoSize = false;
             this.btnNewFile.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.btnNewFile.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-            this.btnNewFile.Image = global::DarkUI.Demo.Icons.NewFile_6276;
+            this.btnNewFile.Image = global::DarkUI.Resources.VS2019Icons.NewFile_16x;
             this.btnNewFile.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnNewFile.Name = "btnNewFile";
             this.btnNewFile.Size = new System.Drawing.Size(24, 24);

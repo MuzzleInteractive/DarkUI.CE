@@ -1,5 +1,5 @@
 ﻿using DarkUI.Config;
-using DarkUI.Icons;
+using DarkUI.Resources;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
@@ -70,7 +70,7 @@ namespace DarkUI.Renderers
 
             if (e.Item.ImageIndex == -1 && String.IsNullOrEmpty(e.Item.ImageKey) && e.Item.Image == null)
             {
-                g.DrawImageUnscaled(MenuIcons.tick, new Point(e.ImageRectangle.Left, e.ImageRectangle.Top));
+                g.DrawImageUnscaled(DarkUIIcons.tick, new Point(e.ImageRectangle.Left, e.ImageRectangle.Top));
             }
         }
 

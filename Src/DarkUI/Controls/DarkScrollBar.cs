@@ -1,5 +1,5 @@
 ﻿using DarkUI.Config;
-using DarkUI.Icons;
+using DarkUI.Resources;
 using System;
 using System.ComponentModel;
 using System.Drawing;
@@ -455,13 +455,13 @@ namespace DarkUI.Controls
             }*/
 
             // Up arrow
-            var upIcon = _upArrowHot ? ScrollIcons.scrollbar_arrow_hot : ScrollIcons.scrollbar_arrow_standard;
+            var upIcon = _upArrowHot ? DarkUIIcons.scrollbar_arrow_hot : DarkUIIcons.scrollbar_arrow_standard;
 
             if (_upArrowClicked)
-                upIcon = ScrollIcons.scrollbar_arrow_clicked;
+                upIcon = DarkUIIcons.scrollbar_arrow_clicked;
 
             if (!Enabled)
-                upIcon = ScrollIcons.scrollbar_arrow_disabled;
+                upIcon = DarkUIIcons.scrollbar_disabled;
 
             if (_scrollOrientation == DarkScrollOrientation.Vertical)
                 upIcon.RotateFlip(RotateFlipType.RotateNoneFlipY);
@@ -473,13 +473,13 @@ namespace DarkUI.Controls
                                 _upArrowArea.Top + (_upArrowArea.Height / 2) - (upIcon.Height / 2));
 
             // Down arrow
-            var downIcon = _downArrowHot ? ScrollIcons.scrollbar_arrow_hot : ScrollIcons.scrollbar_arrow_standard;
+            var downIcon = _downArrowHot ? DarkUIIcons.scrollbar_arrow_hot : DarkUIIcons.scrollbar_arrow_standard;
 
             if (_downArrowClicked)
-                downIcon = ScrollIcons.scrollbar_arrow_clicked;
+                downIcon = DarkUIIcons.scrollbar_arrow_clicked;
 
             if (!Enabled)
-                downIcon = ScrollIcons.scrollbar_arrow_disabled;
+                downIcon = DarkUIIcons.scrollbar_disabled;
 
             if (_scrollOrientation == DarkScrollOrientation.Horizontal)
                 downIcon.RotateFlip(RotateFlipType.Rotate270FlipNone);

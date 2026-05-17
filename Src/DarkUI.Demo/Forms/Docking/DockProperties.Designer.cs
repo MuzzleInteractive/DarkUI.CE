@@ -229,7 +229,7 @@ namespace DarkUI.Demo.Forms.Docking
             this.DefaultDockArea = DarkUI.Docking.DarkDockArea.Right;
             this.DockText = "Properties";
             this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Icon = global::DarkUI.Demo.Icons.properties_16xLG;
+            this.Icon = global::DarkUI.Resources.VS2019Icons.Property_16x;
             this.Name = "DockProperties";
             this.SerializationKey = "DockProperties";
             this.Size = new System.Drawing.Size(280, 450);
