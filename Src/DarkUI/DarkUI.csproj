@@ -33,6 +33,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="Controls\DarkMaskedTextBox.cs">
+	    <SubType>Component</SubType>
+	  </Compile>
 	  <Compile Update="Resources\DarkUIIcons.Designer.cs">
 	    <DesignTime>True</DesignTime>
 	    <AutoGen>True</AutoGen>

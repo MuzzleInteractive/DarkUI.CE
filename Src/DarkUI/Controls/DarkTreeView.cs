@@ -1232,10 +1232,29 @@ namespace DarkUI.Controls
             }
 
             // 5. Draw child nodes
+            DrawChildNodes(node, g);
+        }
+
+        private void DrawChildNodes(DarkTreeNode node, Graphics g)
+        {
             if (node.Expanded)
             {
                 foreach (var childNode in node.Nodes)
-                    DrawNode(childNode, g);
+                {
+
+                    if (childNode.Expanded)
+                        DrawChildNodes(childNode, g);
+
+                    bool isInTopView = Viewport.Top <= childNode.FullArea.Y + ItemHeight;
+                    bool isWithin = childNode.FullArea.Y < Viewport.Top + Viewport.Height;
+                    bool isPastBottomView = childNode.FullArea.Y > Viewport.Top + Viewport.Height;
+
+                    if (isInTopView && isWithin)
+                        DrawNode(childNode, g);
+
+                    if (isPastBottomView)
+                        break;
+                }
             }
         }
     }
