@@ -64,15 +64,30 @@ namespace DarkUI.Controls
         [DefaultValue(false)]
         public bool ShowIcons { get; set; }
 
+        [Category("Appearance")]
+        [Description("Determines the size of the icons within each item.")]
+        [DefaultValue(16)]
+        public int IconSize
+        {
+            get { return _iconSize; }
+            set
+            {
+                _iconSize = value;
+                UpdateListBox();
+            }
+        }
+
         private int _itemHeight = 20;
         private bool _multiSelect;
-        private readonly int _iconSize = 16;
+        private int _iconSize = 16;
         private ObservableCollection<DarkListItem> _items;
         private List<int> _selectedIndices;
         private int _anchoredItemStart = -1;
         private int _anchoredItemEnd = -1;
 
         public event EventHandler SelectedIndicesChanged;
+        public event OnBackgroundClickedHandler OnBackgroundClicked;
+        public delegate void OnBackgroundClickedHandler();
 
         public DarkListView()
         {
@@ -159,6 +174,7 @@ namespace DarkUI.Controls
             var top = range.Min();
             var bottom = range.Max();
             var width = Math.Max(ContentSize.Width, Viewport.Width);
+            bool clickingItem = false;
 
             for (var i = top; i <= bottom; i++)
             {
@@ -166,6 +182,8 @@ namespace DarkUI.Controls
 
                 if (rect.Contains(pos))
                 {
+                    clickingItem = true;
+
                     if (MultiSelect && ModifierKeys == Keys.Shift)
                         SelectAnchoredRange(i);
                     else if (MultiSelect && ModifierKeys == Keys.Control)
@@ -174,6 +192,9 @@ namespace DarkUI.Controls
                         SelectItem(i);
                 }
             }
+
+            if (!clickingItem && e.Button == MouseButtons.Left)
+                OnBackgroundClicked?.Invoke();
         }
 
         protected override void OnKeyDown(KeyEventArgs e)
@@ -508,7 +529,9 @@ namespace DarkUI.Controls
                 // Icon
                 if (ShowIcons && Items[i].Icon != null)
                 {
-                    g.DrawImageUnscaled(Items[i].Icon, new Point(rect.Left + 5, rect.Top + (rect.Height / 2) - (_iconSize / 2)));
+                    var topLeft = new Point(rect.Left + 5, rect.Top + (rect.Height / 2) - (_iconSize / 2));
+                    var iconRect = new Rectangle(topLeft, new Size(_iconSize, _iconSize));
+                    g.DrawImage(Items[i].Icon, iconRect);
                 }
 
                 // Text

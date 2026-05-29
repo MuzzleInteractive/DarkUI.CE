@@ -1202,6 +1202,16 @@ namespace DarkUI.Win32
         EM_SETCUEBANNER = 0x1501,
 
         /// <summary>
+        /// Used to set a RichTextBox text formatting.
+        /// </summary>
+        EM_SETCHARFORMAT = USER + 68,
+
+        /// <summary>
+        /// Used to set a RichTextBox background color.
+        /// </summary>
+        EM_SETBKGNDCOLOR = USER + 67,
+
+        /// <summary>
         /// To set a window to use the dark mode title/header.
         /// </summary>
         DWMWA_USE_IMMERSIVE_DARK_MODE_BEFORE_20H1 = 19,
@@ -1209,6 +1219,34 @@ namespace DarkUI.Win32
         /// <summary>
         /// To set a window to use the dark mode title/header.
         /// </summary>
-        DWMWA_USE_IMMERSIVE_DARK_MODE = 20
+        DWMWA_USE_IMMERSIVE_DARK_MODE = 20,
+
+        /// <summary>
+        /// EM_SETCHARFORMAT flag (wParam) that sets the RichTextBox's default
+        /// character format without altering existing styled text runs.
+        /// </summary>
+        SCF_DEFAULT = 0x0000,
+
+        /// <summary>
+        /// Applies the formatting only to the current selection. If the selection
+        /// is empty, the change affects the formatting of newly typed text at the
+        /// caret instead of the whole document.
+        /// </summary>
+        SCF_SELECTION = 0x0001,
+
+        /// <summary>
+        /// CHARFORMAT mask bit indicating the text (foreground) color field
+        /// (crTextColor) and the CFE_AUTOCOLOR effect are valid. Set this in
+        /// dwMask so the control honors the crTextColor value being supplied.
+        /// </summary>
+        CFM_COLOR = 0x40000000,
+
+        /// <summary>
+        /// CHARFORMAT effect bit (set in dwEffects) indicating the text should use
+        /// the system's automatic/default text color rather than an explicit
+        /// crTextColor. When this bit is set, crTextColor is ignored; clear it to
+        /// apply the explicit color supplied in crTextColor.
+        /// </summary>
+        CFE_AUTOCOLOR = 0x40000000
     }
 }

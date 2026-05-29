@@ -38,6 +38,9 @@
     <Compile Update="Controls\DarkRadioButton.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Update="Controls\DarkRichTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Update="Controls\DarkScrollBar.cs">
       <SubType>Component</SubType>
     </Compile>
