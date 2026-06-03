@@ -1247,6 +1247,13 @@ namespace DarkUI.Win32
         /// crTextColor. When this bit is set, crTextColor is ignored; clear it to
         /// apply the explicit color supplied in crTextColor.
         /// </summary>
-        CFE_AUTOCOLOR = 0x40000000
+        CFE_AUTOCOLOR = 0x40000000,
+
+        /// <summary>
+        /// Sent by the tab control to negotiate the TabPage display rect vs. the
+        /// window rect. wParam==FALSE => RECT (via lParam) holds the page display
+        /// area; adjust its edges to grow/shrink the TabPage area.
+        /// </summary>
+        TCM_ADJUSTRECT = 0x1328
     }
 }

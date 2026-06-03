@@ -19,6 +19,7 @@
 		<PackageIcon>package-icon.png</PackageIcon>
 		<PackageTags>docking;winforms;net-winforms;docking-library;docking-application;c-sharp;dotnet;dotnet-framework;visual-studio;visual-studio-themes;windows;windows-desktop;windows-forms</PackageTags>
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
 	</PropertyGroup>
 
 	<ItemGroup>

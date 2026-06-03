@@ -44,4 +44,13 @@ namespace DarkUI.Win32
         public byte bRevAuthor;
         public byte bReserved1;
     }
+
+    [StructLayout(LayoutKind.Sequential)]
+    internal struct RECT
+    {
+        public int Left;
+        public int Top;
+        public int Right;
+        public int Bottom;
+    }
 }

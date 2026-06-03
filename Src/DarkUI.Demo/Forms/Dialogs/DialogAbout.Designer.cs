@@ -33,10 +33,10 @@ namespace DarkUI.Demo.Forms.Dialogs
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DialogAbout));
             this.pnlMain = new System.Windows.Forms.Panel();
             this.lblVersion = new DarkUI.Controls.DarkLabel();
+            this.darkLabel3 = new DarkUI.Controls.DarkLabel();
             this.darkLabel2 = new DarkUI.Controls.DarkLabel();
             this.darkLabel1 = new DarkUI.Controls.DarkLabel();
             this.lblHeader = new DarkUI.Controls.DarkLabel();
-            this.darkLabel3 = new DarkUI.Controls.DarkLabel();
             this.pnlMain.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -66,12 +66,22 @@ namespace DarkUI.Demo.Forms.Dialogs
             this.lblVersion.Text = "Version: [version]";
             this.lblVersion.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
+            // darkLabel3
+            // 
+            this.darkLabel3.AutoSize = false;
+            this.darkLabel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.darkLabel3.Font = new System.Drawing.Font("Segoe UI", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.darkLabel3.Location = new System.Drawing.Point(15, 152);
+            this.darkLabel3.Name = "darkLabel3";
+            this.darkLabel3.Size = new System.Drawing.Size(313, 40);
+            this.darkLabel3.TabIndex = 6;
+            this.darkLabel3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // darkLabel2
             // 
             this.darkLabel2.AutoSize = false;
             this.darkLabel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.darkLabel2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.darkLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             this.darkLabel2.Location = new System.Drawing.Point(15, 101);
             this.darkLabel2.Name = "darkLabel2";
             this.darkLabel2.Size = new System.Drawing.Size(313, 51);
@@ -104,18 +114,6 @@ namespace DarkUI.Demo.Forms.Dialogs
             this.lblHeader.Text = "Dark UI";
             this.lblHeader.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // darkLabel3
-            // 
-            this.darkLabel3.AutoSize = false;
-            this.darkLabel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.darkLabel3.Font = new System.Drawing.Font("Segoe UI", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.darkLabel3.Location = new System.Drawing.Point(15, 152);
-            this.darkLabel3.Name = "darkLabel3";
-            this.darkLabel3.Size = new System.Drawing.Size(313, 40);
-            this.darkLabel3.TabIndex = 6;
-            this.darkLabel3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // 
             // DialogAbout
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -127,7 +125,6 @@ namespace DarkUI.Demo.Forms.Dialogs
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "DialogAbout";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "About Dark UI";
             this.Controls.SetChildIndex(this.pnlMain, 0);
             this.pnlMain.ResumeLayout(false);

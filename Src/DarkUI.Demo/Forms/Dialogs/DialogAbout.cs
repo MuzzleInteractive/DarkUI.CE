@@ -9,7 +9,7 @@ namespace DarkUI.Demo.Forms.Dialogs
         {
             InitializeComponent();
 
-            lblVersion.Text = $"Version: {Application.ProductVersion.ToString()}";
+            lblVersion.Text = $"Version: {Application.ProductVersion}";
             btnOk.Text = "Close";
         }
     }

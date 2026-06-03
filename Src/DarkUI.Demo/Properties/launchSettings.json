@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "DarkUI.Demo": {
+      "commandName": "Project",
+      "commandLineArgs": "-TEST"
+    }
+  }
+}

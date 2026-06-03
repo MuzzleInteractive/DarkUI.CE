@@ -17,6 +17,7 @@
 		<Copyright>Copyright © $(Authors).</Copyright>
 		<StartupObject>DarkUI.Demo.Program</StartupObject>
 		<ApplicationIcon>Icon.ico</ApplicationIcon>
+    <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
 	</PropertyGroup>
 
 	<ItemGroup>

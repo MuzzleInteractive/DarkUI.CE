@@ -59,6 +59,9 @@
     <Compile Update="Controls\DarkStatusStrip.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Update="Controls\DarkTabControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Update="Controls\DarkTextBox.cs">
       <SubType>Component</SubType>
     </Compile>

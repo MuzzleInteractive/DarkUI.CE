@@ -40,6 +40,17 @@ namespace DarkUI.Forms
             ThemeProvider.ApplyTheme(this);
         }
 
+        public override void Refresh()
+        {
+            base.Refresh();
+
+            if (BackColor != ThemeProvider.CurrentTheme.GreyBackground)
+                BackColor = ThemeProvider.CurrentTheme.GreyBackground;
+
+            if (ForeColor != ThemeProvider.CurrentTheme.LightText)
+                ForeColor = ThemeProvider.CurrentTheme.LightText;
+        }
+
         protected override void OnPaintBackground(PaintEventArgs e)
         {
             base.OnPaintBackground(e);
