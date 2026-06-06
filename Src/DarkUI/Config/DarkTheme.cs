@@ -1,11 +1,14 @@
 ﻿using System.Drawing;
+using static DarkUI.Win32.Native;
 
 namespace DarkUI.Config
 {
     public class DarkTheme : ITheme
     {
         public string Name => "Dark";
-        public bool DarkMode => true;
+        public bool UseImmersiveDarkMode => true;
+        public int CornerPreference => (int)WindowCornerPreference.DoNotRound;
+        public int BackdropType => (int)SystemBackdropType.Mica;
         public Color GreyBackground => ColorTranslator.FromHtml("#3C3F41");
         public Color HeaderBackground => ColorTranslator.FromHtml("#393C3E");
         public Color AccentBackground => ColorTranslator.FromHtml("#424D5F");

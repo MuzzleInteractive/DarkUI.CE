@@ -63,23 +63,20 @@ namespace DarkUI.Config
             foreach (DarkForm frm in openForms)
             {
                 frm.RefreshRecursive();
-                EnableImmersiveDarkMode(frm.Handle, _currentTheme.DarkMode);
+                Native.EnableImmersiveDarkMode(frm.Handle, _currentTheme.UseImmersiveDarkMode);
+                Native.SetCornerPreference(frm.Handle, (Native.WindowCornerPreference)_currentTheme.CornerPreference);
+                //Native.ExtendFrameFully(frm.Handle);
+                Native.SetBackdrop(frm.Handle, (Native.SystemBackdropType)_currentTheme.BackdropType);
             }
         }
 
         public static void ApplyTheme(Form frm)
         {
-            EnableImmersiveDarkMode(frm.Handle, _currentTheme.DarkMode);
+            Native.EnableImmersiveDarkMode(frm.Handle, _currentTheme.UseImmersiveDarkMode);
+            Native.SetCornerPreference(frm.Handle, (Native.WindowCornerPreference)_currentTheme.CornerPreference);
+            //Native.ExtendFrameFully(frm.Handle);
+            Native.SetBackdrop(frm.Handle, (Native.SystemBackdropType)_currentTheme.BackdropType);
             frm.RefreshRecursive();
-        }
-
-        private static void EnableImmersiveDarkMode(IntPtr handle, bool enabled)
-        {
-            int useDarkMode = enabled ? 1 : 0;
-            int result = Native.DwmSetWindowAttribute(handle, (int)WM.DWMWA_USE_IMMERSIVE_DARK_MODE, ref useDarkMode, sizeof(int));
-
-            if (result != 0)
-                Native.DwmSetWindowAttribute(handle, (int)WM.DWMWA_USE_IMMERSIVE_DARK_MODE_BEFORE_20H1, ref useDarkMode, sizeof(int));
         }
     }
 }

@@ -5,7 +5,9 @@ namespace DarkUI.Config
     public interface ITheme
     {
         string Name { get; }
-        bool DarkMode { get; }
+        bool UseImmersiveDarkMode { get; }
+        int CornerPreference { get; }
+        int BackdropType { get; }
         Color GreyBackground { get; }
         Color HeaderBackground { get; }
         Color AccentBackground { get; }

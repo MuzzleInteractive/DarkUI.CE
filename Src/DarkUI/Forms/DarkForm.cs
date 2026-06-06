@@ -27,6 +27,7 @@ namespace DarkUI.Forms
 
         public DarkForm()
         {
+            //TransparencyKey = Color.Lime;
             BackColor = ThemeProvider.CurrentTheme.GreyBackground;
             Font = new Font("Segoe UI", 9);
             StartPosition = FormStartPosition.CenterScreen;
@@ -66,5 +67,69 @@ namespace DarkUI.Forms
                 g.DrawRectangle(p, modRect);
             }
         }
+
+        // Refresh Win11 acrylic composition cache
+        protected override void OnDeactivate(EventArgs e)
+        {
+            base.OnDeactivate(e);
+            Invalidate();
+        }
+
+        /*
+        // Do we want to render even when not focused?
+        
+        protected override void WndProc(ref Message m)
+        {
+            const int WM_NCACTIVATE = 0x0086;
+
+            if (m.Msg == WM_NCACTIVATE)
+            {
+                // The REAL focus state is here, before we clobber it.
+                bool reallyActive = m.WParam != IntPtr.Zero;
+                ApplyCaptionState(reallyActive);
+
+                // Force "active" appearance regardless of real focus state.
+                // wParam = TRUE  -> draw as active (keeps the live backdrop)
+                // lParam  = -1   -> tell DWM not to change the non-client region,
+                //                   which avoids a flicker/partial repaint
+                m.WParam = (IntPtr)1;
+                m.LParam = (IntPtr)(-1);
+            }
+
+            base.WndProc(ref m);
+        }
+
+        private const int DWMWA_BORDER_COLOR = 34;
+        private const int DWMWA_CAPTION_COLOR = 35;
+        private const int DWMWA_TEXT_COLOR = 36;
+        private const uint DWMWA_COLOR_DEFAULT = 0xFFFFFFFF; // "reset to system default"
+
+        [DllImport("dwmapi.dll")]
+        private static extern int DwmSetWindowAttribute(
+            IntPtr hwnd, int attribute, ref int pvAttribute, int cbAttribute);
+
+        private bool? _lastState;   // avoid redundant calls
+
+        private void ApplyCaptionState(bool active)
+        {
+            if (_lastState == active) return;
+            _lastState = active;
+
+            // COLORREF is 0x00BBGGRR
+            int text = active
+                ? unchecked((int)DWMWA_COLOR_DEFAULT)               // normal bright text
+                : ColorToCOLORREF(Color.FromArgb(0x99, 0x99, 0x99)); // dimmed inactive text
+
+            DwmSetWindowAttribute(Handle, DWMWA_TEXT_COLOR, ref text, sizeof(int));
+
+            // Optional: also nudge the border to the inactive tone
+            int border = active
+                ? unchecked((int)DWMWA_COLOR_DEFAULT)
+                : ColorToCOLORREF(Color.FromArgb(0x40, 0x40, 0x40));
+            DwmSetWindowAttribute(Handle, DWMWA_BORDER_COLOR, ref border, sizeof(int));
+        }
+
+        private static int ColorToCOLORREF(Color c) => c.R | (c.G << 8) | (c.B << 16);
+        */
     }
 }

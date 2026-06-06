@@ -7,15 +7,15 @@
 		<UseWindowsForms>true</UseWindowsForms>
 		<DebugType Condition="'$(Configuration)'=='Debug'">embedded</DebugType>
 		<Title>$(AssemblyName)</Title>
-		<Version>3.0.0</Version>
+		<Version>3.1.0</Version>
 		<AssemblyVersion>$(Version).0</AssemblyVersion>
 		<FileVersion>$(AssemblyVersion)</FileVersion>
 		<Description>Dark-themed control and docking library for .NET WinForms.</Description>
 		<Authors>Robin Perris, Community</Authors>
 		<Copyright>Copyright © $(Authors).</Copyright>
-		<RepositoryUrl>https://github.com/MuzzleInteractive/DarkUI-CE</RepositoryUrl>
+		<RepositoryUrl>https://github.com/MuzzleInteractive/DarkUI.CE</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>
-		<PackageProjectUrl>https://github.com/MuzzleInteractive/DarkUI-CE</PackageProjectUrl>
+		<PackageProjectUrl>https://github.com/MuzzleInteractive/DarkUI.CE</PackageProjectUrl>
 		<PackageId>$(AssemblyName).CE</PackageId>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
 		<PackageIcon>package-icon.png</PackageIcon>

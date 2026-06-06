@@ -1222,6 +1222,18 @@ namespace DarkUI.Win32
         DWMWA_USE_IMMERSIVE_DARK_MODE = 20,
 
         /// <summary>
+        /// Sets the Windows 11 corner-rounding.
+        /// No-op on Windows 10 and earlier.
+        /// </summary>
+        DWMWA_WINDOW_CORNER_PREFERENCE = 33,
+
+        /// <summary>
+        /// Selecting the window's system backdrop material (Mica, Mica Alt, or Acrylic). 
+        /// Requires Windows 11 22H2+ and an extended, transparent client frame. Used with DwmSetWindowAttribute.
+        /// </summary>
+        DWMWA_SYSTEMBACKDROP_TYPE = 38,
+
+        /// <summary>
         /// EM_SETCHARFORMAT flag (wParam) that sets the RichTextBox's default
         /// character format without altering existing styled text runs.
         /// </summary>
