@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using DarkUI.Win32;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace DarkUI.Forms
@@ -8,6 +9,16 @@ namespace DarkUI.Forms
         protected override bool ShowWithoutActivation
         {
             get { return true; }
+        }
+
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                var cp = base.CreateParams;
+                cp.ExStyle |= (int)WM.WS_EX_TRANSPARENT;
+                return cp;
+            }
         }
 
         public DarkTranslucentForm(Color backColor, double opacity = 0.6)

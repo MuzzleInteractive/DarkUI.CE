@@ -89,6 +89,8 @@ namespace DarkUI.Docking
             }
         }
 
+        internal static readonly List<DarkDockPanel> ActivePanels = new List<DarkDockPanel>();
+
         private List<DarkDockContent> _contents;
         private Dictionary<DarkDockArea, DarkDockRegion> _regions;
         private DarkDockContent _activeContent;
@@ -111,6 +113,16 @@ namespace DarkUI.Docking
             BackColor = ThemeProvider.CurrentTheme.GreyBackground;
 
             CreateRegions();
+
+            ActivePanels.Add(this);
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+                ActivePanels.Remove(this);
+
+            base.Dispose(disposing);
         }
 
         public void AddContent(DarkDockContent dockContent)

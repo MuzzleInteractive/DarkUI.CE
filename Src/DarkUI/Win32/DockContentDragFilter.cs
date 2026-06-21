@@ -1,6 +1,7 @@
 ﻿using DarkUI.Config;
 using DarkUI.Docking;
 using DarkUI.Forms;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
@@ -16,6 +17,7 @@ namespace DarkUI.Win32
         private DarkDockRegion _targetRegion;
         private DarkDockGroup _targetGroup;
         private DockInsertType _insertType = DockInsertType.None;
+        private bool _overDockPanel = false;
         private Dictionary<DarkDockRegion, DockDropArea> _regionDropAreas = new Dictionary<DarkDockRegion, DockDropArea>();
         private Dictionary<DarkDockGroup, DockDropCollection> _groupDropAreas = new Dictionary<DarkDockGroup, DockDropCollection>();
 
@@ -50,26 +52,32 @@ namespace DarkUI.Win32
             {
                 if (_targetRegion != null)
                 {
-                    _dockPanel.RemoveContent(_dragContent);
+                    var targetPanel = _targetRegion.DockPanel;
+
+                    _dragContent.DockPanel.RemoveContent(_dragContent);
                     _dragContent.DockArea = _targetRegion.DockArea;
-                    _dockPanel.AddContent(_dragContent);
+                    targetPanel.AddContent(_dragContent);
                 }
                 else if (_targetGroup != null)
                 {
-                    _dockPanel.RemoveContent(_dragContent);
+                    var targetPanel = _targetGroup.DockPanel;
+
+                    _dragContent.DockPanel.RemoveContent(_dragContent);
 
                     switch (_insertType)
                     {
                         case DockInsertType.None:
-                            _dockPanel.AddContent(_dragContent, _targetGroup);
+                            targetPanel.AddContent(_dragContent, _targetGroup);
                             break;
 
                         case DockInsertType.Before:
                         case DockInsertType.After:
-                            _dockPanel.InsertContent(_dragContent, _targetGroup, _insertType);
+                            targetPanel.InsertContent(_dragContent, _targetGroup, _insertType);
                             break;
                     }
                 }
+                else if (!_overDockPanel)
+                    TearOutContent();
 
                 StopDrag();
                 return false;
@@ -83,26 +91,24 @@ namespace DarkUI.Win32
             _regionDropAreas = new Dictionary<DarkDockRegion, DockDropArea>();
             _groupDropAreas = new Dictionary<DarkDockGroup, DockDropCollection>();
 
-            // Add all regions and groups to the drop collections
-            foreach (var region in _dockPanel.Regions.Values)
+            foreach (var panel in DarkDockPanel.ActivePanels)
             {
-                if (region.DockArea == DarkDockArea.Document)
-                    continue;
-
-                // If the region is visible then build drop areas for the groups.
-                if (region.Visible)
+                foreach (var region in panel.Regions.Values)
                 {
-                    foreach (var group in region.Groups)
+                    if (region.Visible)
                     {
-                        var collection = new DockDropCollection(_dockPanel, group);
-                        _groupDropAreas.Add(group, collection);
+                        if (region.Groups.Count == 0)
+                        {
+                            _regionDropAreas.Add(region, new DockDropArea(panel, region));
+                        }
+                        else
+                        {
+                            foreach (var group in region.Groups)
+                                _groupDropAreas.Add(group, new DockDropCollection(panel, group));
+                        }
                     }
-                }
-                // If the region is NOT visible then build the drop area for the region itself.
-                else
-                {
-                    var area = new DockDropArea(_dockPanel, region);
-                    _regionDropAreas.Add(region, area);
+                    else
+                        _regionDropAreas.Add(region, new DockDropArea(panel, region));
                 }
             }
 
@@ -145,10 +151,20 @@ namespace DarkUI.Win32
 
             _targetRegion = null;
             _targetGroup = null;
+            _overDockPanel = false;
+
+            DarkDockPanel activePanel = GetPanelAtScreenPoint(location);
+            _overDockPanel = activePanel != null;
 
             // Check all region drop areas
             foreach (var area in _regionDropAreas.Values)
             {
+                if (area.DockPanel != activePanel)
+                    continue;
+
+                if (!CanDropInArea(area.DockRegion.DockArea))
+                    continue;
+
                 if (area.DropArea.Contains(location))
                 {
                     _insertType = DockInsertType.None;
@@ -161,6 +177,12 @@ namespace DarkUI.Win32
             // Check all group drop areas
             foreach (var collection in _groupDropAreas.Values)
             {
+                if (collection.DropArea.DockPanel != activePanel)
+                    continue;
+
+                if (!CanDropInArea(collection.DropArea.DockGroup.DockArea))
+                    continue;
+
                 var sameRegion = false;
                 var sameGroup = false;
                 var groupHasOtherContent = false;
@@ -174,8 +196,10 @@ namespace DarkUI.Win32
                 if (_dragContent.DockGroup.ContentCount > 1)
                     groupHasOtherContent = true;
 
+                var isDocument = collection.DropArea.DockGroup.DockArea == DarkDockArea.Document;
+
                 // If we're hovering over the group itself, only allow inserting before/after if multiple content is tabbed.
-                if (!sameGroup || groupHasOtherContent)
+                if (!isDocument && (!sameGroup || groupHasOtherContent))
                 {
                     var skipBefore = false;
                     var skipAfter = false;
@@ -227,12 +251,71 @@ namespace DarkUI.Win32
                 }
             }
 
-            // Not hovering over anything - hide the highlight
+            // Not hovering over a valid target - hide the highlight
             if (_highlightForm.Visible)
                 _highlightForm.Hide();
 
-            // Show we can't drag here
-            Cursor.Current = Cursors.No;
+            Cursor.Current = _overDockPanel ? Cursors.No : Cursors.SizeAll;
+        }
+
+        private DarkDockPanel GetPanelAtScreenPoint(Point location)
+        {
+            IntPtr hWnd = Native.WindowFromPoint(location);
+            if (hWnd == IntPtr.Zero)
+                return null;
+
+            Control control = Control.FromChildHandle(hWnd);
+            if (control == null)
+                return null;
+
+            Form form = control.FindForm();
+            if (form == null)
+                return null;
+
+            foreach (var panel in DarkDockPanel.ActivePanels)
+            {
+                if (panel.FindForm() == form)
+                    return panel;
+            }
+
+            return null;
+        }
+
+        private bool CanDropInArea(DarkDockArea targetArea)
+        {
+            bool contentIsDocument = _dragContent is DarkDocument;
+            bool targetIsDocument = targetArea == DarkDockArea.Document;
+
+            return contentIsDocument == targetIsDocument;
+        }
+
+        private void TearOutContent()
+        {
+            DarkDockContent content = _dragContent;
+            DarkDockPanel source = content.DockPanel;
+
+            if (source == null)
+                return;
+
+            Size size = content.DockGroup != null ? content.DockGroup.Size : content.Size;
+
+            if (size.Width < 300)
+                size = new Size(300, size.Height);
+
+            if (size.Height < 300)
+                size = new Size(size.Width, 300);
+
+            Point location = new Point(Cursor.Position.X - 60, Cursor.Position.Y - 15);
+            Form ownerForm = source.FindForm();
+
+            source.RemoveContent(content);
+
+            DarkDockFloatForm floatForm = new DarkDockFloatForm(content, size, location);
+
+            if (ownerForm != null)
+                floatForm.Owner = ownerForm;
+
+            floatForm.Show();
         }
     }
 }

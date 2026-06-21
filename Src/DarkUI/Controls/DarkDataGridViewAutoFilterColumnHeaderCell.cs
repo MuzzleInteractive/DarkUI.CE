@@ -317,7 +317,7 @@ namespace DarkUI.Controls
             if (source == null || String.IsNullOrEmpty(source.Filter))
             {
                 filtered = false;
-                selectedFilterValue = "(Todos)";
+                selectedFilterValue = "(All)";
                 currentColumnFilter = String.Empty;
             }
         }
@@ -607,6 +607,8 @@ namespace DarkUI.Controls
 
             // Set the size and location of dropDownListBox and tbxSearch, then display it. 
             SetFilterBounds();
+            tbxSearch.Refresh();
+            dropDownListBox.Refresh();
             tbxSearch.Visible = true;
             dropDownListBox.Visible = true;
             dropDownListBoxShowing = true;
@@ -674,7 +676,7 @@ namespace DarkUI.Controls
                 {
                     SizeF stringSizeF = graphics.MeasureString(
                         filter, dropDownListBox.Font);
-                    dropDownListBoxHeight += (Int32)stringSizeF.Height;
+
                     currentWidth = (Int32)stringSizeF.Width;
                     if (dropDownListBoxWidth < currentWidth)
                     {
@@ -683,8 +685,10 @@ namespace DarkUI.Controls
                 }
             }
 
-            // Increase the width to allow for horizontal margins and borders. 
-            dropDownListBoxWidth += 6;
+            dropDownListBoxHeight += (filters.Keys.Count + 1) * dropDownListBox.ItemHeight;
+
+            // Increase the width to allow for horizontal margins and borders and scrollbars. 
+            dropDownListBoxWidth += 26;
 
             // Constrain the dropDownListBox height to the 
             // DropDownListBoxMaxHeightInternal value, which is based on 
@@ -1067,11 +1071,11 @@ namespace DarkUI.Controls
             // Add special filter options to the filters dictionary
             // along with null values, since unformatted representations
             // are not needed. 
-            filters.Insert(0, "(Todos)", null);
+            filters.Insert(0, "(All)", null);
             if (containsBlanks && containsNonBlanks)
             {
-                filters.Add("(Vazios)", null);
-                filters.Add("(Não Vazios)", null);
+                filters.Add("(Blanks)", null);
+                filters.Add("(Non Blanks)", null);
             }
         }
 
@@ -1148,7 +1152,7 @@ namespace DarkUI.Controls
 
             // If the user selection is (All), remove any filter currently 
             // in effect for the column. 
-            if (selectedFilterValue.Equals("(Todos)"))
+            if (selectedFilterValue.Equals("(All)"))
             {
                 data.Filter = FilterWithoutCurrentColumn(data.Filter);
                 filtered = false;
@@ -1170,12 +1174,12 @@ namespace DarkUI.Controls
             // string determines whether the column value is the selected value. 
             switch (selectedFilterValue)
             {
-                case "(Vazios)":
+                case "(Blanks)":
                     newColumnFilter = String.Format(
                         "LEN(ISNULL(CONVERT([{0}],'System.String'),''))=0",
                         columnProperty);
                     break;
-                case "(Não Vazios)":
+                case "(Non Blanks)":
                     newColumnFilter = String.Format(
                         "LEN(ISNULL(CONVERT([{0}],'System.String'),''))>0",
                         columnProperty);
@@ -1556,10 +1560,10 @@ namespace DarkUI.Controls
         #endregion public properties
 
         /// <summary>
-        /// Represents a ListBox control used as a drop-down filter list
+        /// Represents a DarkListBox control used as a drop-down filter list
         /// in a DataGridView control.
         /// </summary>
-        private class FilterListBox : ListBox
+        private class FilterListBox : DarkListBox
         {
             /// <summary>
             /// Initializes a new instance of the FilterListBox class.

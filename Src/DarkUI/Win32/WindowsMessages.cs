@@ -1266,6 +1266,11 @@ namespace DarkUI.Win32
         /// window rect. wParam==FALSE => RECT (via lParam) holds the page display
         /// area; adjust its edges to grow/shrink the TabPage area.
         /// </summary>
-        TCM_ADJUSTRECT = 0x1328
+        TCM_ADJUSTRECT = 0x1328,
+
+        /// <summary>
+        /// Makes the window transparent to mouse events, passing them through to windows beneath it.
+        /// </summary>
+        WS_EX_TRANSPARENT = 0x20
     }
 }

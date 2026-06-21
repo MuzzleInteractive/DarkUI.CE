@@ -46,6 +46,14 @@ namespace DarkUI.Docking
         {
             switch (DockRegion.DockArea)
             {
+                case DarkDockArea.Document:
+                    Rectangle documentRect = new Rectangle(DockRegion.PointToScreen(Point.Empty), DockRegion.Size);
+
+                    DropArea = documentRect;
+                    HighlightArea = documentRect;
+
+                    break;
+
                 case DarkDockArea.Left:
 
                     var leftRect = new Rectangle

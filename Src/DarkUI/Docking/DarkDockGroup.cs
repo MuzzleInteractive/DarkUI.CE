@@ -30,6 +30,7 @@ namespace DarkUI.Docking
         private Dictionary<DarkDockContent, DarkDockTab> _tabs = new Dictionary<DarkDockContent, DarkDockTab>();
         private DarkDockTabArea _tabArea;
         private DarkDockTab _dragTab = null;
+        private int TabDragOutThreshold = 12;
 
         public DarkDockGroup(DarkDockPanel dockPanel, DarkDockRegion dockRegion, int order)
         {
@@ -388,6 +389,16 @@ namespace DarkUI.Docking
 
             if (_dragTab != null)
             {
+                Rectangle band = _tabArea.ClientRectangle;
+
+                if (e.Location.Y < band.Top - TabDragOutThreshold || e.Location.Y > band.Bottom + TabDragOutThreshold)
+                {
+                    DarkDockContent content = _dragTab.DockContent;
+                    _dragTab = null;
+                    DockPanel.DragContent(content);
+                    return;
+                }
+
                 var offsetX = e.Location.X + _tabArea.Offset;
                 if (offsetX < _dragTab.ClientRectangle.Left)
                 {

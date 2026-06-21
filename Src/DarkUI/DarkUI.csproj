@@ -7,7 +7,7 @@
 		<UseWindowsForms>true</UseWindowsForms>
 		<DebugType Condition="'$(Configuration)'=='Debug'">embedded</DebugType>
 		<Title>$(AssemblyName)</Title>
-		<Version>3.1.0</Version>
+		<Version>3.2.0</Version>
 		<AssemblyVersion>$(Version).0</AssemblyVersion>
 		<FileVersion>$(AssemblyVersion)</FileVersion>
 		<Description>Dark-themed control and docking library for .NET WinForms.</Description>
