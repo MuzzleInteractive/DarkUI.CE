@@ -4,6 +4,9 @@ namespace DarkUI.Docking
 {
     internal class DockDropArea
     {
+        private const int PreviewDropWidth = 200;
+        private const int PreviewDropHeight = 150;
+
         internal DarkDockPanel DockPanel { get; private set; }
 
         internal Rectangle DropArea { get; private set; }
@@ -60,7 +63,7 @@ namespace DarkUI.Docking
                     {
                         X = DockPanel.PointToScreen(Point.Empty).X,
                         Y = DockPanel.PointToScreen(Point.Empty).Y,
-                        Width = 50,
+                        Width = PreviewDropWidth,
                         Height = DockPanel.Height
                     };
 
@@ -73,9 +76,9 @@ namespace DarkUI.Docking
 
                     var rightRect = new Rectangle
                     {
-                        X = DockPanel.PointToScreen(Point.Empty).X + DockPanel.Width - 50,
+                        X = DockPanel.PointToScreen(Point.Empty).X + DockPanel.Width - PreviewDropWidth,
                         Y = DockPanel.PointToScreen(Point.Empty).Y,
-                        Width = 50,
+                        Width = PreviewDropWidth,
                         Height = DockPanel.Height
                     };
 
@@ -103,9 +106,9 @@ namespace DarkUI.Docking
                     var bottomRect = new Rectangle
                     {
                         X = x,
-                        Y = DockPanel.PointToScreen(Point.Empty).Y + DockPanel.Height - 50,
+                        Y = DockPanel.PointToScreen(Point.Empty).Y + DockPanel.Height - PreviewDropHeight,
                         Width = width,
-                        Height = 50
+                        Height = PreviewDropHeight
                     };
 
                     DropArea = bottomRect;

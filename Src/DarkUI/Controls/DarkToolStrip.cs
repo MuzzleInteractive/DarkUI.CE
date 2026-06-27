@@ -21,7 +21,22 @@ namespace DarkUI.Controls
             }
         }
 
-        private bool _drawBorder;
+        [Category("Appearance")]
+        [Description("Specifies visibility of the grip on the ToolStrip.")]
+        [DefaultValue(ToolStripGripStyle.Hidden)]
+        public new ToolStripGripStyle GripStyle
+        {
+            get
+            {
+                return base.GripStyle;
+            }
+            set
+            {
+                base.GripStyle = value;
+            }
+        }
+
+        private bool _drawBorder = true;
 
         public DarkToolStrip()
         {
@@ -29,6 +44,7 @@ namespace DarkUI.Controls
             Padding = new Padding(5, 0, 1, 0);
             AutoSize = false;
             Size = new Size(1, 28);
+            GripStyle = ToolStripGripStyle.Hidden;
         }
 
         protected override void OnPaintBackground(PaintEventArgs e)

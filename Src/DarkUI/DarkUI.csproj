@@ -6,13 +6,16 @@
 		<Nullable>disable</Nullable>
 		<UseWindowsForms>true</UseWindowsForms>
 		<DebugType Condition="'$(Configuration)'=='Debug'">embedded</DebugType>
+		<LangVersion>latest</LangVersion>
 		<Title>$(AssemblyName)</Title>
-		<Version>3.2.0</Version>
-		<AssemblyVersion>$(Version).0</AssemblyVersion>
-		<FileVersion>$(AssemblyVersion)</FileVersion>
+		<Product>$(AssemblyName)</Product>
 		<Description>Dark-themed control and docking library for .NET WinForms.</Description>
 		<Authors>Robin Perris, Community</Authors>
 		<Copyright>Copyright © $(Authors).</Copyright>
+		<Version>3.2.1</Version>
+		<_VersionPrefix>$([System.Text.RegularExpressions.Regex]::Match($(Version), '^\d+\.\d+\.\d+'))</_VersionPrefix>
+		<AssemblyVersion>$(_VersionPrefix).0</AssemblyVersion>
+		<FileVersion>$(_VersionPrefix).0</FileVersion>
 		<RepositoryUrl>https://github.com/MuzzleInteractive/DarkUI.CE</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>
 		<PackageProjectUrl>https://github.com/MuzzleInteractive/DarkUI.CE</PackageProjectUrl>
@@ -28,8 +31,8 @@
 
 	<ItemGroup>
 		<None Include="..\..\LICENSE">
-		  <Pack>True</Pack>
-		  <PackagePath>\</PackagePath>
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
 		</None>
 		<None Include="..\..\package-icon.png">
 			<Pack>True</Pack>
@@ -42,30 +45,30 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Compile Update="Controls\DarkMaskedTextBox.cs">
-	    <SubType>Component</SubType>
-	  </Compile>
-	  <Compile Update="Resources\DarkUIIcons.Designer.cs">
-	    <DesignTime>True</DesignTime>
-	    <AutoGen>True</AutoGen>
-	    <DependentUpon>DarkUIIcons.resx</DependentUpon>
-	  </Compile>
-	  <Compile Update="Resources\VS2019Icons.Designer.cs">
-	    <DesignTime>True</DesignTime>
-	    <AutoGen>True</AutoGen>
-	    <DependentUpon>VS2019Icons.resx</DependentUpon>
-	  </Compile>
+		<Compile Update="Controls\DarkMaskedTextBox.cs">
+			<SubType>Component</SubType>
+		</Compile>
+		<Compile Update="Resources\DarkUIIcons.Designer.cs">
+			<DesignTime>True</DesignTime>
+			<AutoGen>True</AutoGen>
+			<DependentUpon>DarkUIIcons.resx</DependentUpon>
+		</Compile>
+		<Compile Update="Resources\VS2019Icons.Designer.cs">
+			<DesignTime>True</DesignTime>
+			<AutoGen>True</AutoGen>
+			<DependentUpon>VS2019Icons.resx</DependentUpon>
+		</Compile>
 	</ItemGroup>
 
 	<ItemGroup>
-	  <EmbeddedResource Update="Resources\DarkUIIcons.resx">
-	    <Generator>PublicResXFileCodeGenerator</Generator>
-	    <LastGenOutput>DarkUIIcons.Designer.cs</LastGenOutput>
-	  </EmbeddedResource>
-	  <EmbeddedResource Update="Resources\VS2019Icons.resx">
-	    <Generator>PublicResXFileCodeGenerator</Generator>
-	    <LastGenOutput>VS2019Icons.Designer.cs</LastGenOutput>
-	  </EmbeddedResource>
+		<EmbeddedResource Update="Resources\DarkUIIcons.resx">
+			<Generator>PublicResXFileCodeGenerator</Generator>
+			<LastGenOutput>DarkUIIcons.Designer.cs</LastGenOutput>
+		</EmbeddedResource>
+		<EmbeddedResource Update="Resources\VS2019Icons.resx">
+			<Generator>PublicResXFileCodeGenerator</Generator>
+			<LastGenOutput>VS2019Icons.Designer.cs</LastGenOutput>
+		</EmbeddedResource>
 	</ItemGroup>
 
 </Project>

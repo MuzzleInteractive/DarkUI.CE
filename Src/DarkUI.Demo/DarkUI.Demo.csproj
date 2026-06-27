@@ -6,30 +6,32 @@
 		<Nullable>disable</Nullable>
 		<UseWindowsForms>true</UseWindowsForms>
 		<DebugType Condition="'$(Configuration)'=='Debug'">embedded</DebugType>
+		<LangVersion>latest</LangVersion>
 		<OutputType>WinExe</OutputType>
-		<Title>$(AssemblyName)</Title>
-		<PackageId>$(AssemblyName)</PackageId>
-		<Version>3.2.0</Version>
-		<AssemblyVersion>$(Version).0</AssemblyVersion>
-		<FileVersion>$(AssemblyVersion)</FileVersion>
-		<Description>Example application for Dark UI.</Description>
-		<Authors>Robin Perris, community</Authors>
-		<Copyright>Copyright © $(Authors).</Copyright>
 		<StartupObject>DarkUI.Demo.Program</StartupObject>
+		<Title>$(AssemblyName)</Title>
+		<Product>$(AssemblyName)</Product>
+		<Description>Example application for Dark UI.</Description>
+		<Authors>Robin Perris, Community</Authors>
+		<Copyright>Copyright © $(Authors).</Copyright>
+		<Version>3.2.1</Version>
+		<_VersionPrefix>$([System.Text.RegularExpressions.Regex]::Match($(Version), '^\d+\.\d+\.\d+'))</_VersionPrefix>
+		<AssemblyVersion>$(_VersionPrefix).0</AssemblyVersion>
+		<FileVersion>$(_VersionPrefix).0</FileVersion>
 		<ApplicationIcon>Icon.ico</ApplicationIcon>
 		<IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
 	</PropertyGroup>
 
 	<ItemGroup>
-	  <Content Include="Icon.ico" />
+		<Content Include="Icon.ico" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\DarkUI\DarkUI.csproj" />
+		<ProjectReference Include="..\DarkUI\DarkUI.csproj" />
 	</ItemGroup>
 
 </Project>

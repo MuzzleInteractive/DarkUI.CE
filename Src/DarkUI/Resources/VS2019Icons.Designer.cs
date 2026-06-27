@@ -37293,6 +37293,56 @@ namespace DarkUI.Resources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap Status_Blue_16x {
+            get {
+                object obj = ResourceManager.GetObject("Status_Blue_16x", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Status_Green_16x {
+            get {
+                object obj = ResourceManager.GetObject("Status_Green_16x", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Status_Grey_16x {
+            get {
+                object obj = ResourceManager.GetObject("Status_Grey_16x", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Status_Red_16x {
+            get {
+                object obj = ResourceManager.GetObject("Status_Red_16x", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Status_Yellow_16x {
+            get {
+                object obj = ResourceManager.GetObject("Status_Yellow_16x", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap StatusAlert_16x {
             get {
                 object obj = ResourceManager.GetObject("StatusAlert_16x", resourceCulture);
@@ -45446,6 +45496,26 @@ namespace DarkUI.Resources {
         public static System.Drawing.Bitmap VisibleBorders_16x {
             get {
                 object obj = ResourceManager.GetObject("VisibleBorders_16x", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap VisualStudio_2019_16x {
+            get {
+                object obj = ResourceManager.GetObject("VisualStudio_2019_16x", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap VisualStudio_2019_32x {
+            get {
+                object obj = ResourceManager.GetObject("VisualStudio_2019_32x", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

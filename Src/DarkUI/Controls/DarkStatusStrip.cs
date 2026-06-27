@@ -21,6 +21,36 @@ namespace DarkUI.Controls
             }
         }
 
+        [Category("Appearance")]
+        [Description("Specifies visibility of the grip on the ToolStrip.")]
+        [DefaultValue(ToolStripGripStyle.Hidden)]
+        public new ToolStripGripStyle GripStyle
+        {
+            get
+            {
+                return base.GripStyle;
+            }
+            set
+            {
+                base.GripStyle = value;
+            }
+        }
+
+        [Category("Appearance")]
+        [Description("Determines whether a StatusStrip has a sizing grip.")]
+        [DefaultValue(false)]
+        public new bool SizingGrip
+        {
+            get
+            {
+                return base.SizingGrip;
+            }
+            set
+            {
+                base.SizingGrip = value;
+            }
+        }
+
         private bool _drawBorder = true;
 
         public DarkStatusStrip()
@@ -30,6 +60,7 @@ namespace DarkUI.Controls
             Padding = new Padding(0, 5, 0, 3);
             Size = new Size(Size.Width, 24);
             SizingGrip = false;
+            GripStyle = ToolStripGripStyle.Hidden;
         }
 
         protected override void OnPaintBackground(PaintEventArgs e)

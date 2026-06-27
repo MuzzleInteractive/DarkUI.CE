@@ -297,6 +297,11 @@ namespace DarkUI.Win32
             if (source == null)
                 return;
 
+            Form ownerForm = source.FindForm();
+
+            if (ownerForm is DarkDockFloatForm && source.GetAllContents().Count <= 1)
+                return;
+
             Size size = content.DockGroup != null ? content.DockGroup.Size : content.Size;
 
             if (size.Width < 300)
@@ -306,7 +311,9 @@ namespace DarkUI.Win32
                 size = new Size(size.Width, 300);
 
             Point location = new Point(Cursor.Position.X - 60, Cursor.Position.Y - 15);
-            Form ownerForm = source.FindForm();
+
+            while (ownerForm is DarkDockFloatForm && ownerForm.Owner != null)
+                ownerForm = ownerForm.Owner;
 
             source.RemoveContent(content);
 
